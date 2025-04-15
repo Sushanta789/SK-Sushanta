@@ -7,7 +7,7 @@ function login(e) {
     if (stored && stored.userId === inputId && stored.password === inputPass) {
       localStorage.setItem("loggedIn", "true");
       alert("Login successful!");
-      window.location.href = "home/home.html";
+      window.location.href = "/home/home.html";
     } else {
       alert("Invalid credentials");
     }
