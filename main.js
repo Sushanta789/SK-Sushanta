@@ -1,4 +1,4 @@
-const text = "Welcome to My Website - S.K. Sushanta";
+const text = "Welcome to My Website  S.K. Sushanta";
   let i = 0;
   function typeWriter() {
     if (i < text.length) {
