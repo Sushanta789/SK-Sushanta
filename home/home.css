@@ -1,0 +1,107 @@
+    /* Global Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    a {
+      text-decoration: none;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      background-color: #333;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+    .navbar a {
+      color: white;
+      margin-left: 20px;
+      font-size: 18px;
+    }
+    .navbar a:hover {
+      color: #f0f0f0;
+      text-decoration: underline;
+    }
+
+    /* Main Content Styles */
+    .content {
+      max-width: 1000px;
+      margin: 80px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      font-size: 36px;
+    }
+
+    /* Profile Card */
+    .profile-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      margin-top: 30px;
+    }
+    .profile-card img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #f0f0f0;
+    }
+    .profile-card h2 {
+      margin-top: 15px;
+      color: #333;
+      font-size: 28px;
+      font-weight: 600;
+    }
+    .profile-card p {
+      font-size: 18px;
+      color: #555;
+      margin-top: 5px;
+    }
+
+    /* Auto Type Animation */
+    .auto-type {
+      font-size: 28px;
+      font-weight: 600;
+      color: #333;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .info {
+      font-size: 18px;
+      margin-top: 40px;
+      color: #555;
+      text-align: center;
+    }
+
+    .info span {
+      font-weight: bold;
+      color: #333;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }

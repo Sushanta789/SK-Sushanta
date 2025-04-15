@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Settings - S.K Sushanta</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fafafa;
+      padding: 40px;
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    form {
+      max-width: 400px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      color: #555;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      background-color: #333;
+      color: white;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+
+<h2>User Settings</h2>
+<form onsubmit="saveChanges(event)">
+  <label for="userId">User ID:</label>
+  <input type="text" id="userId" disabled />
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" />
+
+  <label for="newName">New Name:</label>
+  <input type="text" id="newName" />
+
+  <label for="newMobile">New Mobile:</label>
+  <input type="text" id="newMobile" />
+
+  <button type="submit">Save Changes</button>
+</form>
+
+<script>
+  function loadSettings() {
+    const user = JSON.parse(localStorage.getItem("userData"));
+    if (user) {
+      document.getElementById("userId").value = user.userId;  // Display User ID
+      document.getElementById("email").value = user.email;    // Display current email
+    }
+  }
+
+  function saveChanges(event) {
+    event.preventDefault();
+    
+    const user = JSON.parse(localStorage.getItem("userData"));
+    if (user) {
+      // Get updated values from the form
+      const newName = document.getElementById("newName").value.trim() || user.name;
+      const newMobile = document.getElementById("newMobile").value.trim() || user.mobile;
+      const newEmail = document.getElementById("email").value.trim() || user.email;
+
+      // Regenerate User ID based on the updated values
+      const updatedUserId = (newName.slice(0, 3) + newMobile.slice(-3) + newEmail.slice(0, 3)).toLowerCase();
+      
+      // Update the user object with new details
+      user.name = newName;
+      user.mobile = newMobile;
+      user.email = newEmail;
+      user.userId = updatedUserId;  // Update User ID
+
+      // Save the updated user data back to localStorage
+      localStorage.setItem("userData", JSON.stringify(user));
+
+      // Update the User ID field
+      document.getElementById("userId").value = updatedUserId;
+
+      alert("Profile updated successfully!");
+    }
+  }
+
+  // Load settings when the page loads
+  window.onload = loadSettings;
+</script>
+
+</body>
+</html>
